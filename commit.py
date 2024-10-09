@@ -34,10 +34,7 @@ if __name__ == "__main__":
             result = runner.run(suite(*tests_to_do))
             if not result.wasSuccessful():
                 print("Tests were not successful, commit aborted!")
-                system("rm database.sqlite")
                 quit()
-            else:
-                system("rm database.sqlite")
 
         case 1:
             tests_to_do = pick(tests, "Choos what you want to test:", "->", 0, True)
