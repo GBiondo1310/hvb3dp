@@ -6,7 +6,7 @@ from increase_proj_version import run as increase_version
 
 if __name__ == "__main__":
 
-    if platform.system()=="Windows":
+    if platform.system() == "Windows":
         raise NotImplementedError("Commit.py does not work on windows")
 
     _, commit_if_test_not_passed = pick(
@@ -49,7 +49,7 @@ if __name__ == "__main__":
 
     if generate_documentation_before_committing == 0:
         print("Generating documentation")
-        chdir("ncdbtht_server")
+        chdir("hvb3dp")
         system("sphinx-apidoc -o ../docs .")
         chdir("../docs")
         system("sphinx-build -M html . _build")

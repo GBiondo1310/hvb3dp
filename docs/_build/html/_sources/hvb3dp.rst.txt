@@ -1,0 +1,10 @@
+hvb3dp package
+==============
+
+Module contents
+---------------
+
+.. automodule:: hvb3dp
+   :members:
+   :undoc-members:
+   :show-inheritance:
