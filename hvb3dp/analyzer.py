@@ -7,6 +7,7 @@ class Analyzer:
     meters: float
     grams: float
     print_time: float
+    header: str
 
     def __init__(self, filename: str):
         """Initializes the Analyzer and extracts values
@@ -17,6 +18,7 @@ class Analyzer:
 
         self.filename = filename
         self.get_info()
+        self.get_header()
         self.extract_values()
         self.extract_print_time()
         self.extract_filament_amount()
@@ -30,6 +32,18 @@ class Analyzer:
 
         with open(self.filename, mode="r") as gcode_file:
             self.info = gcode_file.readlines(300)
+
+    def get_header(self):
+        """Extracts gcode header"""
+
+        self.header = ""
+
+        for line in self.info:
+            if line.startswith(";"):
+                self.header = self.header + line
+
+            else:
+                return
 
     def extract_values(self):
         """Extracts the following from a gcode file:
