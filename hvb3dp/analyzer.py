@@ -1,5 +1,5 @@
 class Analyzer:
-    """Object that analyzes the chosen gcode and extracts needed values"""
+    """Class that analyzes the chosen gcode and extracts needed values"""
 
     info: str
     core_gcode: str
