@@ -1,0 +1,17 @@
+__pycache__
+venv
+tests
+*.egg-info
+__pycache__
+venv
+tests
+*.egg-info
+scripts
+struct.json
+docs/*
+!docs/_build
+docs/_build/doctrees
+logs
+.vscode
+gcodes
+main.py"

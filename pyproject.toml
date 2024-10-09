@@ -1,0 +1,28 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "hvb3dp"
+version = "0.0.0.dev0"
+authors = [
+    { name="GBiondo1310", email="giacomo.biondelli@gmail.com" },
+]
+description = "High Volume Batch 3d Printing"
+readme = "README.md"
+dependencies = []
+
+requires-python = ">=3.8"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
+
+[project.urls]
+Homepage = "https://github.com/GBiondo1310/hvb3dp.git"
+Github = "https://github.com/GBiondo1310/hvb3dp.git"
+Issues = "https://github.com/GBiondo1310/hvb3dp.git/issuses"
+
+[tool.setuptools.packages]
+find={}
