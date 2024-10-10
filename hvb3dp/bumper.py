@@ -16,6 +16,8 @@ class Bumper:
 
         :param filename: The name of the gcode to analyze
         :type filename: str
+        :param printer: Name of the printer to use (saved in "printers.json" file)
+        :type printer: str
         """
         self.filename = filename
         self.printer = printer
@@ -92,7 +94,7 @@ class Bumper:
 
     def bumper_gcode(self) -> str:
         """Returns bumper gcode
-        This gcode will be executed as soon as the printer finished printing the object
+        This gcode will be executed as soon as the printer finishes printing the object
         :rtype: str"""
 
         return f"""\nG1 X{self.x} Y{self.y} Z{self.z} F3000

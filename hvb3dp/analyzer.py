@@ -24,17 +24,15 @@ class Analyzer:
         self.extract_filament_amount()
         self.extract_core_gcode()
 
-    def get_info(self) -> str:
-        """Extracts the first 300 from the gcode file as it's usually enough
-        to cover print info
-
-        :rtype: str"""
+    def get_info(self):
+        """Gets the first 300 from the gcode file as it's usually enough
+        to cover print info"""
 
         with open(self.filename, mode="r") as gcode_file:
             self.info = gcode_file.readlines(300)
 
     def get_header(self):
-        """Extracts gcode header"""
+        """Gets gcode header"""
 
         self.header = ""
 
@@ -111,4 +109,7 @@ class Analyzer:
                 self.core_gcode = "".join(self.core_gcode)
 
             if not line.startswith(";"):
+                self.core_gcode.append(line)
+
+            if line.startswith(";LAYER"):
                 self.core_gcode.append(line)
