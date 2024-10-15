@@ -7,3 +7,14 @@ M84 X Y E ;Disable all steppers but Z
 M82 ;absolute extrusion mode
 M104 S0
 ;End of Gcode"""
+
+
+PRINTERS_JSON = """{
+    "CUSTOM_PRINTER":{
+        "name": "My custom printer",
+        "x": 200,
+        "y": 200,
+        "z": 200,
+        "nozzle_y_offset":50
+    }
+}"""
