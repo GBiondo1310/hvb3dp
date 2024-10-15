@@ -32,15 +32,24 @@ Why not print one piece at a time? With HVB3DP, your printer can:
 - **Remove start & end gcodes**: Default start and end gcodes will cause issues when printing,
 please remove them in your slicer's settings. HVB3DP will provide start and end gcodes.
 
+## How to install
+- ### Pre-requisites
+    This tool is written and be launched using Python 3 which can be downloaded [here](https://www.python.org/)
 
+- ### Downlaod
 
+    - #### Method 1 - ```git clone```
+        Clone the directory and run
+        ```
+        python -m hvb3dp
+        ```
 
-# Install in editable mode:
-```
-pip install -e .
-```
-
-# Install from github:
-```
-pip install project_name@git+"https://github.com/GBiondo1310/hvb3dp.git"
-```
+    - #### Method 2 - Install using ```pip```
+        Create a new venv, activate it and install with
+        ```
+        pip install hvb3dp@git+"https://github.com/GBiondo1310/hvb3dp.git"
+        ```
+        and run
+        ```
+        python -m hvb3dp
+        ```

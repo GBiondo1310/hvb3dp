@@ -10,7 +10,7 @@ docs/_build/doctrees
 logs
 .vscode
 gcodes
-main.py"
-printers.json
+main.py
 commit.py
 increase_proj_version.py
+printers.json
