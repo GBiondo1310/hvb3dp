@@ -333,9 +333,9 @@ class HVB3DPGui(tk.Tk):
         )
 
         printer_z = simpledialog.askinteger(
-            title="HVB3DP - Add printer", prompt="Enter printer max Y"
+            title="HVB3DP - Add printer", prompt="Enter printer max Z"
         )
-        printer_nozzle_offset = simpledialog.askstring(
+        printer_nozzle_offset = simpledialog.askinteger(
             title="HVB3DP - Add printer",
             prompt="Enter printer nozzle - head offset",
         )
