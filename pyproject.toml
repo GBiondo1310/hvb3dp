@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "hvb3dp"
-version = "1.0.1.dev0"
+version = "1.0.2.dev0"
 authors = [
     { name="GBiondo1310", email="giacomo.biondelli@gmail.com" },
 ]

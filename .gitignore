@@ -14,3 +14,7 @@ main.py
 commit.py
 increase_proj_version.py
 printers.json
+dist
+hvb3dp.py
+*.spec
+build

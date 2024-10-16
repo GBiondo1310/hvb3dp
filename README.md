@@ -53,3 +53,8 @@ please remove them in your slicer's settings. HVB3DP will provide start and end 
         ```
         python -m hvb3dp
         ```
+
+    - #### Method 3 - .exe file for Windows users
+        An executable file of this script can be downloaded [here]()
+        Just download it and run. There's no need to install python in this case
+        ase it comes bundled with the executable. 
