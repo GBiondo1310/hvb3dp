@@ -9,12 +9,12 @@ M104 S0
 ;End of Gcode"""
 
 
-PRINTERS_JSON = """{
-    "CUSTOM_PRINTER":{
-        "name": "My custom printer",
+PRINTERS_JSON = {
+    "CUSTOM_PRINTER": {
+        "name": "Custom printer 1",
         "x": 200,
         "y": 200,
         "z": 200,
-        "nozzle_y_offset":50
+        "nozzle_y_offset": 50,
     }
-}"""
+}

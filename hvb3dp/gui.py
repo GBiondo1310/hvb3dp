@@ -6,13 +6,11 @@ from tkinter import filedialog, messagebox, ttk, simpledialog
 from platform import system
 
 from .hv_multiple import HVMultiple
+from .setup import default_printer
 
 
 class HVB3DPGui(tk.Tk):
-    """User Interface for HVB3D
-
-    :What can you do:
-    """
+    """User Interface for HVB3D"""
 
     file_list = []  #: Holds user selected files
     printers_dict = {}  #: Holds printers stored in printers.json
@@ -30,12 +28,24 @@ class HVB3DPGui(tk.Tk):
         self.title("HVB3DP - High Volume Batch (for) 3D Printing")
         self.geometry("1600x900")
 
+        self.selected_printer = tk.StringVar()
+
+        if "printers.json" not in listdir():
+            default_printer()
+
+        self.load_printers()
+        self.setup()
+
+    def load_printers(self):
+        """Loads printers in printers.json in self.printers_dict
+        and updates self.selected_printer"""
         with open("printers.json", mode="r") as printers_json:
             self.printers_dict = json.load(printers_json)
-        self.selected_printer = tk.StringVar()
+        if not any(self.printers_dict):
+            default_printer()
+            self.load_printers()
+            return
         self.selected_printer.set(list(self.printers_dict.keys())[0])
-
-        self.setup()
 
     def setup(self):
         """Set up UI"""
@@ -296,14 +306,6 @@ class HVB3DPGui(tk.Tk):
         manage_printers_menu.title("HVB3DP - Manage printers")
         manage_printers_menu.geometry("800x450")
 
-        # selected_printer = tk.StringVar()
-        # selected_printer.set(list(self.printers_dict.keys())[0])
-
-        # printers_menu = tk.OptionMenu(
-        #     self.printer_frame, self.selected_printer, *list(self.printers_dict.keys())
-        # )
-        # printers_menu.pack()
-
         add_printer_btn = tk.Button(
             manage_printers_menu, text="Add printer", command=self.add_printer
         )
@@ -524,9 +526,11 @@ Do you want to modify this printer?""",
             self.files_frame.destroy()
             self.btns_frame.destroy()
             self.printer_frame.destroy()
-            self.selected_printer.set(list(self.printers_dict.keys())[0])
-            self.setup()
+            if not any(self.printers_dict):
+                default_printer()
 
+            self.load_printers()
+            self.setup()
             message.destroy()
 
         tk.Button(message, text="Delete printer", command=delete).pack()
