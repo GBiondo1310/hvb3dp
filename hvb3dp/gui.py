@@ -299,6 +299,29 @@ class HVB3DPGui(tk.Tk):
         for bumper in hv.bumpers:
             del bumper
 
+        layer = 0
+        with open(output, mode="r") as gcode_file:
+            gcode = gcode_file.readlines()
+
+        for index, line in enumerate(gcode):
+            if line.startswith(";LAYER:"):
+                gcode[index] = f";LAYER:{layer}\n"
+                layer += 1
+
+        layer -= 1
+
+        first = True
+        for index, line in enumerate(gcode):
+            if line.startswith(";LAYER_COUNT:"):
+                if first:
+                    gcode[index] = f";LAYER_COUNT:{layer}\nG28\n"
+                    first = False
+                else:
+                    gcode[index] = "G28\n"
+
+        with open(output, mode="w") as gcode_file:
+            gcode_file.writelines(gcode)
+
     def manage_printers(self):
         """Allows user to add, modify and delete printers"""
 

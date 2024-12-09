@@ -41,7 +41,7 @@ class HVMultiple:
 
         :rtype: str"""
         new_header = [
-            ";# ============== HVB3DP ============== #"
+            ";# ============== HVB3DP ============== #\n"
             ";Created with HVB3DP version: 0.4.0.dev0",
             f";Date: {datetime.now().strftime('%d/%m/%Y')}",
             ";Print list:",
